@@ -143,7 +143,8 @@ const balance = totalIncome - totalExpense;
       {expenses.length === 0 ? (
         <p>No Expenses Found</p>
       ) : (
-        <table border="1" cellPadding="10">
+        <div className="table-container">
+          <table>
           <thead>
             <tr>
               <th>Title</th>
@@ -156,6 +157,8 @@ const balance = totalIncome - totalExpense;
           </thead>
 
           <tbody>
+          </table>
+        </div>
   {expenses
   .filter((expense) =>
     expense.title.toLowerCase().includes(search.toLowerCase())
