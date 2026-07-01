@@ -43,3 +43,25 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+th {
+  background-color: #f2f2f2;
+}
