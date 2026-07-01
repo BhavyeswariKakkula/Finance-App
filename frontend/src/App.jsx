@@ -140,50 +140,49 @@ const balance = totalIncome - totalExpense;
 
       <h2>Expense List</h2>
 
-      {expenses.length === 0 ? (
-        <p>No Expenses Found</p>
-      ) : (
-        <div className="table-container">
-          <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Amount</th>
-              <th>Type</th>
-              <th>Category</th>
-              <th>Date</th>
-                <th>Action</th>
+{expenses.length === 0 ? (
+  <p>No Expenses Found</p>
+) : (
+  <div className="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {expenses
+          .filter((expense) =>
+            expense.title.toLowerCase().includes(search.toLowerCase())
+          )
+          .map((expense) => (
+            <tr key={expense._id}>
+              <td>{expense.title}</td>
+              <td>{expense.amount}</td>
+              <td>{expense.type}</td>
+              <td>{expense.category}</td>
+              <td>{expense.date.slice(0, 10)}</td>
+              <td>
+                <button onClick={() => deleteExpense(expense._id)}>
+                  Delete
+                </button>
+              </td>
             </tr>
-          </thead>
-
-          <tbody>
-          </table>
-        </div>
-  {expenses
-  .filter((expense) =>
-    expense.title.toLowerCase().includes(search.toLowerCase())
-  )
-  .map((expense) => (
-
-    <tr key={expense._id}>
-      <td>{expense.title}</td>
-      <td>{expense.amount}</td>
-      <td>{expense.type}</td>
-      <td>{expense.category}</td>
-      <td>{expense.date.slice(0, 10)}</td>
-
-      <td>
-        <button onClick={() => deleteExpense(expense._id)}>
-          Delete
-        </button>
-      </td>
-    </tr>
-  ))}
-</tbody>
-        </table>
-      )}
-    </div>
+          ))}
+      </tbody>
+    </table>
+  </div>
+)}
+</div>
   );
 }
 
 export default App;
+
+
